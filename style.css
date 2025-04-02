@@ -1,0 +1,513 @@
+:root {
+    /* Define as variáveis de cores e estilos para uso em todo o CSS */
+    --background-dark: rgba(0, 0, 0, 0.795);
+    /* Cor de fundo escura com opacidade */
+    --background-light: #fff;
+    /* Cor de fundo clara (branca) */
+    --background-body-light: #f5f5f5;
+    /* Cor de fundo do corpo em modo claro */
+    --background-body-dark: #2c2c2c;
+    /* Cor de fundo do corpo em modo escuro */
+    --box-shadow: rgba(138, 138, 138, 0.35);
+    /* Cor da sombra dos elementos */
+    --button-bg: rgb(0, 68, 255);
+    /* Cor de fundo do botão */
+    --button-border: transparent;
+    /* Cor da borda do botão */
+    --button-text: #fff;
+    /* Cor do texto no botão */
+    --input-bg: #eee;
+    /* Cor de fundo dos campos de entrada */
+    --text-color: #333;
+    /* Cor do texto padrão */
+    --toggle-bg: rgba(0, 68, 255);
+    /* Cor de fundo do toggle */
+}
+
+* {
+    /* Reseta margens e preenchimentos para todos os elementos */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Inclui bordas e preenchimentos nas dimensões dos elementos */
+    font-family: 'Montserrat', sans-serif;
+    /* Define a fonte padrão */
+}
+
+body {
+    /* Estilos gerais do corpo da página */
+    background-color: var(--background-body-light);
+    /* Cor de fundo do corpo */
+    color: var(--text-color);
+    /* Cor do texto */
+    display: flex;
+    /* Usa Flexbox para layout */
+    align-items: center;
+    /* Alinha os itens verticalmente ao centro */
+    justify-content: center;
+    /* Alinha os itens horizontalmente ao centro */
+    flex-direction: column;
+    /* Coloca os itens em coluna */
+    height: 100vh;
+    /* Altura total da viewport */
+    transition: background-color 0.3s, color 0.3s;
+    /* Transições suaves para mudanças de cor */
+}
+
+.container {
+    /* Estilos para o contêiner principal */
+    background-color: var(--background-light);
+    /* Cor de fundo do contêiner */
+    border-radius: 30px;
+    /* Cantos arredondados */
+    box-shadow: 0 10px 20px var(--box-shadow), 0 6px 6px var(--box-shadow);
+    /* Sombreamento */
+    position: relative;
+    /* Posição relativa para elementos filhos */
+    overflow: hidden;
+    /* Esconde o conteúdo que transbordar */
+    width: 768px;
+    /* Largura fixa */
+    max-width: 100%;
+    /* Largura máxima 100% */
+    min-height: 480px;
+    /* Altura mínima */
+    transition: background-color 0.3s;
+    /* Transição suave para mudanças de cor */
+}
+
+.container p {
+    /* Estilos para parágrafos dentro do contêiner */
+    font-size: 14px;
+    /* Tamanho da fonte */
+    line-height: 20px;
+    /* Altura da linha */
+    letter-spacing: 0.3px;
+    /* Espaçamento entre letras */
+    margin: 20px 0;
+    /* Margem vertical */
+}
+
+.container span {
+    /* Estilos para spans dentro do contêiner */
+    font-size: 12px;
+    /* Tamanho da fonte */
+}
+
+.container a {
+    /* Estilos para links dentro do contêiner */
+    color: var(--text-color);
+    /* Cor do texto do link */
+    font-size: 13px;
+    /* Tamanho da fonte */
+    text-decoration: none;
+    /* Remove o sublinhado */
+    margin: 15px 0 10px;
+    /* Margem vertical */
+}
+
+.container button {
+    /* Estilos para botões dentro do contêiner */
+    background-color: var(--button-bg);
+    /* Cor de fundo do botão */
+    color: var(--button-text);
+    /* Cor do texto do botão */
+    font-size: 12px;
+    /* Tamanho da fonte */
+    padding: 10px 45px;
+    /* Preenchimento interno */
+    border: 1px solid var(--button-border);
+    /* Borda do botão */
+    border-radius: 8px;
+    /* Cantos arredondados */
+    font-weight: 600;
+    /* Peso da fonte */
+    letter-spacing: 0.5px;
+    /* Espaçamento entre letras */
+    text-transform: uppercase;
+    /* Transforma o texto para letras maiúsculas */
+    margin-top: 10px;
+    /* Margem superior */
+    cursor: pointer;
+    /* Muda o cursor para indicar que é clicável */
+}
+
+.container button.hidden {
+    /* Estilos para botões que estão escondidos */
+    background-color: transparent;
+    /* Fundo transparente */
+    border-color: var(--background-light);
+    /* Cor da borda igual ao fundo */
+}
+
+.container form {
+    /* Estilos para formulários dentro do contêiner */
+    background-color: var(--background-light);
+    /* Cor de fundo do formulário */
+    display: flex;
+    /* Usa Flexbox para layout */
+    align-items: center;
+    /* Alinha os itens verticalmente ao centro */
+    justify-content: center;
+    /* Alinha os itens horizontalmente ao centro */
+    flex-direction: column;
+    /* Coloca os itens em coluna */
+    padding: 0 40px;
+    /* Preenchimento horizontal */
+    height: 100%;
+    /* Altura total do contêiner */
+}
+
+.container input {
+    /* Estilos para campos de entrada */
+    background-color: var(--input-bg);
+    /* Cor de fundo do campo */
+    border: none;
+    /* Sem borda */
+    margin: 8px 0;
+    /* Margem vertical */
+    padding: 10px 15px;
+    /* Preenchimento interno */
+    font-size: 13px;
+    /* Tamanho da fonte */
+    border-radius: 8px;
+    /* Cantos arredondados */
+    width: 100%;
+    /* Largura total */
+    outline: none;
+    /* Remove a borda de foco padrão */
+}
+
+.form-container {
+    /* Estilos para o contêiner do formulário */
+    position: absolute;
+    /* Posição absoluta para sobreposição */
+    top: 0;
+    /* Alinha ao topo */
+    height: 100%;
+    /* Altura total */
+    transition: all 0.6s ease-in-out;
+    /* Transição suave para mudanças */
+}
+
+.sign-in {
+    /* Estilos para a seção de login */
+    left: 0;
+    /* Alinha à esquerda */
+    width: 50%;
+    /* Largura de 50% */
+    z-index: 2;
+    /* Z-index para sobreposição */
+}
+
+.container.active .sign-in {
+    /* Estilos quando a seção de login está ativa */
+    transform: translateX(100%);
+    /* Move a seção para a direita */
+}
+
+.sign-up {
+    /* Estilos para a seção de registro */
+    left: 0;
+    /* Alinha à esquerda */
+    width: 50%;
+    /* Largura de 50% */
+    opacity: 0;
+    /* Inicialmente invisível */
+    z-index: 1;
+    /* Z-index para sobreposição */
+}
+
+.container.active .sign-up {
+    /* Estilos quando a seção de registro está ativa */
+    transform: translateX(100%);
+    /* Move a seção para a direita */
+    opacity: 1;
+    /* Torna visível */
+    z-index: 5;
+    /* Z-index para sobreposição */
+    animation: move 0.6s;
+    /* Animação de entrada */
+}
+
+@keyframes move {
+    /* Animação para a entrada da seção de registro */
+    0%,
+    49.99% {
+        opacity: 0;
+        /* Invisível */
+        z-index: 1;
+        /* Z-index baixo */
+    }
+    50%,
+    100% {
+        opacity: 1;
+        /* Visível */
+        z-index: 5;
+        /* Z-index alto */
+    }
+}
+
+.social-icons {
+    /* Estilos para o contêiner de ícones sociais */
+    margin: 20px 0;
+    /* Margem vertical */
+}
+
+.social-icons a {
+    /* Estilos para os links de ícones sociais */
+    border: 1px solid #ccc;
+    /* Borda cinza */
+    border-radius: 20%;
+    /* Cantos arredondados */
+    display: inline-flex;
+    /* Exibe como flexível */
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    align-items: center;
+    /* Centraliza verticalmente */
+    margin: 0 3px;
+    /* Margem horizontal */
+    width: 40px;
+    /* Largura fixa */
+    height: 40px;
+    /* Altura fixa */
+}
+
+.toggle-container {
+    /* Estilos para o contêiner do toggle */
+    position: absolute;
+    /* Posição absoluta para sobreposição */
+    top: 0;
+    /* Alinha ao topo */
+    left: 50%;
+    /* Alinha ao centro horizontalmente */
+    width: 50%;
+    /* Largura de 50% */
+    height: 100%;
+    /* Altura total */
+    overflow: hidden;
+    /* Esconde o conteúdo que transbordar */
+    transition: all 0.6s ease-in-out;
+    /* Transição suave para mudanças */
+    border-radius: 20px;
+    /* Cantos arredondados */
+    z-index: 1000;
+    /* Z-index alto para sobreposição */
+}
+
+.container.active .toggle-container {
+    /* Estilos quando o contêiner do toggle está ativo */
+    transform: translateX(-100%);
+    /* Move para a esquerda */
+    border-radius: 20px;
+    /* Mantém cantos arredondados */
+}
+
+.toggle {
+    /* Estilos para o elemento de toggle */
+    background-color: var(--toggle-bg);
+    /* Cor de fundo do toggle */
+    height: 100%;
+    /* Altura total */
+    color: var(--button-text);
+    /* Cor do texto */
+    position: relative;
+    /* Posição relativa */
+    left: -100%;
+    /* Alinha à esquerda fora da tela */
+    width: 200%;
+    /* Largura de 200% para permitir a transição */
+    transform: translateX(0);
+    /* Posição inicial */
+    transition: all 0.6s ease-in-out;
+    /* Transição suave para mudanças */
+}
+
+.container.active .toggle {
+    /* Estilos quando o toggle está ativo */
+    transform: translateX(50%);
+    /* Move o toggle para o meio */
+}
+
+.toggle-panel {
+    /* Estilos para o painel do toggle */
+    position: absolute;
+    /* Posição absoluta para sobreposição */
+    width: 50%;
+    /* Largura de 50% */
+    height: 100%;
+    /* Altura total */
+    display: flex;
+    /* Usa Flexbox para layout */
+    align-items: center;
+    /* Alinha os itens verticalmente ao centro */
+    justify-content: center;
+    /* Alinha os itens horizontalmente ao centro */
+    flex-direction: column;
+    /* Coloca os itens em coluna */
+    padding: 0 30px;
+    /* Preenchimento horizontal */
+    text-align: center;
+    /* Centraliza o texto */
+    top: 0;
+    /* Alinha ao topo */
+    transform: translateX(0);
+    /* Posição inicial */
+    transition: all 0.6s ease-in-out;
+    /* Transição suave para mudanças */
+}
+
+.toggle-left {
+    /* Estilos para o painel da esquerda */
+    transform: translateX(-200%);
+    /* Move para fora da tela à esquerda */
+}
+
+.container.active .toggle-left {
+    /* Estilos quando o painel da esquerda está ativo */
+    transform: translateX(0);
+    /* Move para a posição original */
+}
+
+.toggle-right {
+    /* Estilos para o painel da direita */
+    right: 0;
+    /* Alinha à direita */
+    transform: translateX(0);
+    /* Posição inicial */
+}
+
+.error-message {
+    /* Estilos para mensagens de erro */
+    color: red;
+    /* Cor do texto vermelho */
+    font-size: 12px;
+    /* Tamanho da fonte */
+    display: none;
+    /* Inicialmente escondido */
+}
+
+input.error {
+    /* Estilos para campos de entrada com erro */
+    border: 2px solid red;
+    /* Borda vermelha quando há erro */
+}
+
+.password-field {
+    position: relative;
+    width: 100%;
+    margin: 8px 0;
+}
+
+.password-field input {
+    width: 100%;
+    padding-right: 40px;
+    background-color: var(--input-bg);
+    border: none;
+    margin: 0;
+    padding: 10px 40px 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    outline: none;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #666;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.eye-icon:hover {
+    color: var(--button-bg);
+}
+
+
+/* RESPONSIVIDADE */
+
+
+/* Adicione estas media queries no final do arquivo CSS */
+
+@media (max-width: 768px) {
+    .container {
+        min-height: 400px;
+        width: 90%;
+    }
+    .form-container {
+        width: 100%;
+        left: 0;
+    }
+    .sign-in {
+        width: 100%;
+    }
+    .sign-up {
+        width: 100%;
+    }
+    .toggle-container {
+        display: none;
+    }
+    .container button {
+        padding: 8px 25px;
+    }
+    .container form {
+        padding: 0 20px;
+    }
+    .container h1 {
+        font-size: 20px;
+    }
+    .social-icons a {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        min-height: 350px;
+        width: 95%;
+    }
+    .container input {
+        padding: 8px 10px;
+    }
+    .container button {
+        padding: 6px 20px;
+        font-size: 11px;
+    }
+    .social-icons {
+        margin: 10px 0;
+    }
+    .container p {
+        font-size: 12px;
+        margin: 10px 0;
+    }
+}
+
+
+/* Ajuste para altura em dispositivos menores */
+
+@media (max-height: 600px) {
+    .container {
+        margin: 20px 0;
+        min-height: 300px;
+    }
+}
+
+.mobile-login,
+.mobile-signup {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-login,
+    .mobile-signup {
+        display: block;
+    }
+    .toggle-container {
+        display: none;
+    }
+}
